@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,46 +6,44 @@
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 20 10% 12%;
+    --background: 0 0% 96%;
+    --foreground: 0 0% 6%;
 
-    --card: 30 20% 95%;
-    --card-foreground: 20 10% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 6%;
 
-    --popover: 30 25% 97%;
-    --popover-foreground: 20 10% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 6%;
 
-    --primary: 24 70% 45%;
-    --primary-foreground: 30 25% 97%;
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 38 55% 75%;
-    --secondary-foreground: 20 10% 12%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 6%;
 
-    --muted: 30 15% 90%;
-    --muted-foreground: 20 8% 45%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 15 60% 35%;
-    --accent-foreground: 30 25% 97%;
+    --accent: 43 76% 52%;
+    --accent-foreground: 0 0% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 24 70% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 24 100% 50%;
 
-    --radius: 0.375rem;
+    --radius: 0.625rem;
 
-    --gold: 42 80% 55%;
-    --gold-foreground: 20 10% 12%;
-    --terracotta: 15 55% 50%;
-    --terracotta-foreground: 30 25% 97%;
-    --earth: 25 30% 30%;
-    --earth-foreground: 30 25% 97%;
-    --sand: 35 30% 88%;
-    --warm-white: 35 30% 96%;
+    --gold: 43 76% 52%;
+    --gold-foreground: 0 0% 6%;
+    --dark: 0 0% 6%;
+    --dark-foreground: 0 0% 96%;
+    --orange: 24 100% 50%;
+    --orange-foreground: 0 0% 100%;
 
-    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-heading: 'Poppins', system-ui, sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
 
     --sidebar-background: 0 0% 98%;
@@ -109,6 +107,11 @@
   }
 }
 
+@keyframes scale-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 .animate-fade-up {
   animation: fade-up 0.8s ease-out forwards;
 }
@@ -121,7 +124,15 @@
   animation: slide-in-right 0.7s ease-out forwards;
 }
 
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
 .animate-delay-100 { animation-delay: 0.1s; }
 .animate-delay-200 { animation-delay: 0.2s; }
 .animate-delay-300 { animation-delay: 0.3s; }
 .animate-delay-400 { animation-delay: 0.4s; }
+
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
