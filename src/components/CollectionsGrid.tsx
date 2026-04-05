@@ -1,11 +1,12 @@
-import collectionWomen from "@/assets/collection-women.jpg";
-import collectionMen from "@/assets/collection-men.jpg";
-import collectionAccessories from "@/assets/collection-accessories.jpg";
+import catWomen from "@/assets/cat-women.jpg";
+import catMen from "@/assets/cat-men.jpg";
+import catAccessories from "@/assets/cat-accessories.jpg";
+import { Link } from "react-router-dom";
 
 const categories = [
-  { title: "Femmes", subtitle: "Robes, tops & ensembles", image: collectionWomen },
-  { title: "Hommes", subtitle: "Costumes, chemises & casual", image: collectionMen },
-  { title: "Accessoires", subtitle: "Bijoux, sacs & plus", image: collectionAccessories },
+  { title: "Femmes", subtitle: "Robes, tops & ensembles", image: catWomen, link: "/shop?cat=femmes" },
+  { title: "Hommes", subtitle: "Costumes, chemises & casual", image: catMen, link: "/shop?cat=hommes" },
+  { title: "Accessoires", subtitle: "Bijoux, sacs & plus", image: catAccessories, link: "/shop?cat=accessoires" },
 ];
 
 const CollectionsGrid = () => {
@@ -22,12 +23,11 @@ const CollectionsGrid = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {categories.map((cat, i) => (
-            <a
+          {categories.map((cat) => (
+            <Link
               key={cat.title}
-              href="#"
-              className="group relative overflow-hidden aspect-[3/4] rounded-sm"
-              style={{ animationDelay: `${i * 0.15}s` }}
+              to={cat.link}
+              className="group relative overflow-hidden aspect-[3/4] rounded-lg"
             >
               <img
                 src={cat.image}
@@ -37,17 +37,17 @@ const CollectionsGrid = () => {
                 height={800}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-sand mb-1">
+                <h3 className="font-heading text-2xl lg:text-3xl font-bold text-dark-foreground mb-1">
                   {cat.title}
                 </h3>
-                <p className="font-body text-sm text-sand/70 tracking-wide">
+                <p className="font-body text-sm text-dark-foreground/70 tracking-wide">
                   {cat.subtitle}
                 </p>
-                <div className="mt-4 h-[1px] w-0 bg-gold transition-all duration-500 group-hover:w-full" />
+                <div className="mt-4 h-[2px] w-0 bg-primary transition-all duration-500 group-hover:w-full rounded-full" />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
